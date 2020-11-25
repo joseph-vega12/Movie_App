@@ -10,16 +10,31 @@ import TvShows from './TvShows';
 import Trending from './Trending';
 
 //Styled Component Import
+import styled from 'styled-components';
+
+const NavBar = styled.nav`
+    background-color: #10171B;  
+    height: 8vh;
+    font-size: 1.5rem;
+`
+const UL = styled.ul `
+    display: flex;
+    justify-content: space-around;
+    padding: 1.5% 0;
+    width: 50%;
+`
 
 function Nav() {
     return (
         <header>
-            <nav>
-                <Link style={{ textDecoration: 'none', color: 'black' }} to='/'>Home</Link>
-                <Link style={{ textDecoration: 'none', color: 'black' }} to='/movies'>Movies</Link>
-                <Link style={{ textDecoration: 'none', color: 'black' }} to='/tvshows'>Tv Shows</Link>
-                <Link style={{ textDecoration: 'none', color: 'black' }} to='/trending'>Trending</Link>
-            </nav>
+            <NavBar>
+                <UL>
+                <Link style={{ textDecoration: 'none', color: 'white' }} to='/'>Home</Link>
+                <Link style={{ textDecoration: 'none', color: 'white' }} to='/movies'>Movies</Link>
+                <Link style={{ textDecoration: 'none', color: 'white' }} to='/tvshows'>Tv Shows</Link>
+                <Link style={{ textDecoration: 'none', color: 'white' }} to='/trending'>Trending</Link>
+                </UL>
+            </NavBar>
             <Switch>
                 <Route path='/trending' component={Trending} />
                 <Route path='/tvshows' component={TvShows} />
