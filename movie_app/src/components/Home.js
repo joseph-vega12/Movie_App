@@ -1,10 +1,11 @@
 import React from 'react';
+import MovieList from './MovieList';
 
-function Home(){
+function Home() {
     return (
-    <>
-    <h1>This is the home component</h1>
-    </>  
+        <section>
+            <MovieList />
+        </section>
     );
 }
 
