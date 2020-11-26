@@ -5,18 +5,28 @@ import styled from 'styled-components';
 function MovieList() {
 
     //styled components variables
-    
+    const Hello = styled.h1`
+        text-align: center;
+        border: 1px solid black;
+        height: 70vh; 
+        width: 100%;
+    `
+
     const Container = styled.div`
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        margin-top: 2%;
+        /* margin-top: 10%; */
     `
 
-    const Movie = styled.div `
+    const Movie = styled.div`
         padding: 1% 1%;
     `
-    
+
+    // const Img = styled.img `
+    // image-rendering: -webkit-optimize-contrast;
+    // `
+
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
@@ -33,13 +43,23 @@ function MovieList() {
                 console.log(err);
             })
     }
+
     return (
         <Container>
-                {movies.map(movies => (
-                    <Movie key={movies.id}>
-                        <img src={`https://image.tmdb.org/t/p/w200/${movies.poster_path}`} />
-                    </Movie>
-                ))}
+            {/* Renders the Hero Image */}
+            {movies.slice(0, 1).map((item) => {
+                return (
+                    <div key={item.id}>
+                        <img src={`https://image.tmdb.org/t/p/w1280${item.backdrop_path}`} />
+                    </div>
+                )
+            })}
+            {/* Render the Movies  */}
+            {movies.map(movies => (
+                <Movie key={movies.id}>
+                    <img src={`https://image.tmdb.org/t/p/w200/${movies.poster_path}`} />
+                </Movie>
+            ))}
         </Container>
     );
 }
